@@ -31,12 +31,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <repository.server.root>http://localhost:8081/repository</repository.server.root>
+    <repository.server.root>http://35.232.201.110:8081/repository</repository.server.root>
      <releases.distribution.url>
-        ${repository.server.root}/test-releases/
+        ${repository.server.root}/maven-releases/
      </releases.distribution.url>
      <snapshots.distribution.url>
-        ${repository.server.root}/test-snapshot/
+        ${repository.server.root}/maven-snapshots/
      </snapshots.distribution.url>
 
   </properties>
