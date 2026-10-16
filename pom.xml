@@ -15,12 +15,12 @@
 
  <distributionManagement>
         <repository>
-            <id>internalMavenReleaseRepository</id>
+            <id>maven-releases</id>
             <name>Internal Maven Release Repository</name>
             <url>${releases.distribution.url}</url>
          </repository>
          <snapshotRepository>
-            <id>internalMavenSnapshotRepository</id>
+            <id>maven-snapshots</id>
             <name>Internal Snapshots Repository</name>
             <url>${snapshots.distribution.url}</url>
             <uniqueVersion>false</uniqueVersion>
