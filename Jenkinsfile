@@ -39,5 +39,13 @@ pipeline {
               }
             }
         }
+
+        stage('sonarqube') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn sonar:sonar -Dsonar.skipCoverage=true'
+                }
+            }
+        }
     }
 }
