@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Build and Deploy') {
             steps {
+              sshagent(credentials: ['github-ssh-key']) {
                 configFileProvider([
                     configFile(fileId: 'settings.xml', variable: 'SETTINGS')
                 ]) {
@@ -35,6 +36,7 @@ pipeline {
                         }
                     }
                 }
+              }
             }
         }
     }
