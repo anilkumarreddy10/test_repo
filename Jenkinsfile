@@ -20,12 +20,22 @@ pipeline {
                   url: 'git@github.com:anilkumarreddy10/test_repo.git'
             }
         }
-        stage('Build') {
+        stage('Build and Deploy') {
             steps {
-                // Run Maven on a Unix agent.
-                sh "mvn clean package"
+                configFileProvider([
+                    configFile(fileId: 'setting.xml', variable: 'SETTINGS')
+                ]) {
+                    script {
+                        if (params.RELEASE) {
+                        echo 'Running RELEASE build'
+                        sh 'mvn -B release:clean release:prepare release:perform -s {SETTINGS}'
+                        } else {
+                            echo 'Running SNAPSHOT build'
+                            sh 'mvn clean deploy'
+                        }
+                    }
+                }
             }
-
         }
     }
 }
