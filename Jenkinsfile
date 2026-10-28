@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git credentialsId: 'git',
+                git credentialsId: 'github-ssh-key',
                   url: 'git@github.com:anilkumarreddy10/test_repo.git'
             }
         }
