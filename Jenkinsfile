@@ -23,7 +23,7 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 configFileProvider([
-                    configFile(fileId: 'setting.xml', variable: 'SETTINGS')
+                    configFile(fileId: 'settings.xml', variable: 'SETTINGS')
                 ]) {
                     script {
                         if (params.RELEASE) {
