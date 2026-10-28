@@ -12,6 +12,18 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <scm>
+    <connection>
+        scm:git:git@github.com:anilkumarreddy10/test_repo.git
+    </connection>
+
+    <developerConnection>
+        scm:git:git@github.com:anilkumarreddy10/test_repo.git
+    </developerConnection>
+
+    <tag>HEAD</tag>
+  </scm>
+
 
  <distributionManagement>
         <repository>
