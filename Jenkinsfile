@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                // Get some code from a GitHub repository
-                git 'git@github.com:anilkumarreddy10/test_repo.git'
+                git credentialsId: 'git',
+                  url: 'git@github.com:anilkumarreddy10/test_repo.git'
             }
         }
         stage('Build') {
