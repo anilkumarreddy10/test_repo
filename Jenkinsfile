@@ -43,7 +43,7 @@ pipeline {
         stage('sonarqube') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh 'mvn sonar:sonar -Dsonar.skipCoverage=true'
+                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.skipCoverage=true'
                 }
             }
         }
