@@ -31,7 +31,7 @@ pipeline {
                         sh 'mvn -B release:clean release:prepare release:perform -s ${SETTINGS}'
                         } else {
                             echo 'Running SNAPSHOT build'
-                            sh 'mvn clean deploy'
+                            sh 'mvn -s "$SETTINGS" clean deploy'
                         }
                     }
                 }
