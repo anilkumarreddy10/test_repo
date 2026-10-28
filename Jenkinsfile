@@ -42,7 +42,7 @@ pipeline {
 
         stage('sonarqube') {
             steps {
-                withSonarQubeEnv('sonarqube') {
+                withSonarQubeEnv('sonar') {
                     sh 'mvn sonar:sonar -Dsonar.skipCoverage=true'
                 }
             }
