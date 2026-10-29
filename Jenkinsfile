@@ -6,7 +6,7 @@ pipeline {
         maven "mvn"
     }
     environment {
-        IMAGE_NAME = "gcr.io/project-b7d113bc-47ff-4eb4-827/test-repo"
+        IMAGE_NAME = "us-central1-docker.pkg.dev/project-b7d113bc-47ff-4eb4-827/test-repo/test-app"
     }
     parameters {
         booleanParam(
