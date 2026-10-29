@@ -5,7 +5,7 @@
 
   <groupId>tcs</groupId>
   <artifactId>jenkins</artifactId>
-  <version>1.3-SNAPSHOT</version>
+  <version>1.3</version>
 
   <name>jenkins</name>
   <!-- FIXME change it to the project's website -->
@@ -20,7 +20,7 @@
         scm:git:git@github.com:anilkumarreddy10/test_repo.git
     </developerConnection>
 
-    <tag>HEAD</tag>
+    <tag>jenkins-1.3</tag>
   </scm>
 
 
