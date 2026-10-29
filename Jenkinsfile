@@ -52,7 +52,7 @@ pipeline {
         }
         stage('docker') {
             steps {
-                sh 'docker build -t gcr.io/project-b7d113bc-47ff-4eb4-827/test-repo:${BUILD_NUMBER}'
+                sh 'docker build -t gcr.io/project-b7d113bc-47ff-4eb4-827/test-repo:${BUILD_NUMBER} .'
             }
         }
     }
