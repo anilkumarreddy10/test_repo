@@ -5,6 +5,9 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "mvn"
     }
+    environment {
+        IMAGE_NAME = "gcr.io/project-b7d113bc-47ff-4eb4-827/test-repo"
+    }
     parameters {
         booleanParam(
             name: 'RELEASE',
@@ -52,7 +55,12 @@ pipeline {
         }
         stage('docker') {
             steps {
-                sh 'docker build -t gcr.io/project-b7d113bc-47ff-4eb4-827/test-repo:${BUILD_NUMBER} .'
+                sh 'docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} .'
+            }
+        }
+        stage('docker push') {
+            steps {
+                sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
             }
         }
     }
