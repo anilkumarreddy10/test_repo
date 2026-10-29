@@ -40,15 +40,11 @@ pipeline {
             }
         }
 
-        stage('sonarqube') {
+        stage('sonarqube & Quality Gate') {
             steps {
                 withSonarQubeEnv('sonar') {
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.skipCoverage=true'
                 }
-            }
-        }
-        stage('Quality Gate') {
-            steps {
                 timeout(time: 10, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
                 }
