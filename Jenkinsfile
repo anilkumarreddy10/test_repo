@@ -45,7 +45,7 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.skipCoverage=true'
                 }
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 4, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
                 }
             }
