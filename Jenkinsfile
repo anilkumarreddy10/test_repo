@@ -7,6 +7,9 @@ pipeline {
     }
     environment {
         IMAGE_NAME = "us-central1-docker.pkg.dev/project-b7d113bc-47ff-4eb4-827/test-repo/test-app"
+        CLUSTER_NAME = 'my-cluster'
+        REGION = 'us-central1'
+        
     }
     parameters {
         booleanParam(
@@ -61,6 +64,16 @@ pipeline {
         stage('docker push') {
             steps {
                 sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
+            }
+        }
+        stage('connect to gke') {
+            steps {
+                sh "gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION"
+            }
+        }
+        stage('deploy to gke') {
+            steps {
+                sh "kubectl apply -f Deployment.yaml -f service.yaml"
             }
         }
     }
