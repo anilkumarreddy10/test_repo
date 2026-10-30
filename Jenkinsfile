@@ -26,6 +26,28 @@ pipeline {
                   url: 'git@github.com:anilkumarreddy10/test_repo.git'
             }
         }
+        stage('Check Java Maven') {
+            steps {
+                sh '''
+                    echo "===== JAVA_HOME ====="
+                    echo $JAVA_HOME
+
+                    echo "===== Java ====="
+                    which java
+                    readlink -f $(which java)
+                    java -version
+
+                    echo "===== Java Compiler ====="
+                    which javac
+                    readlink -f $(which javac)
+                    javac -version
+
+                    echo "===== Maven ====="
+                    which mvn
+                    mvn -version
+                '''
+            }
+        }
         stage('Build and Deploy') {
             steps {
               sshagent(credentials: ['github-ssh-key']) {
