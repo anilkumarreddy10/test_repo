@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Spring Boot Parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/>
+    </parent>
 
     <groupId>tcs</groupId>
     <artifactId>jenkins</artifactId>
@@ -10,8 +21,10 @@
 
     <name>jenkins</name>
 
-    <!-- Git repository used by Maven Release Plugin -->
+
+    <!-- Git Repository -->
     <scm>
+
         <connection>
             scm:git:git@github.com:anilkumarreddy10/test_repo.git
         </connection>
@@ -21,10 +34,11 @@
         </developerConnection>
 
         <tag>HEAD</tag>
+
     </scm>
 
 
-    <!-- Nexus repositories -->
+    <!-- Nexus -->
     <distributionManagement>
 
         <repository>
@@ -35,7 +49,7 @@
 
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <name>Internal Maven Snapshots Repository</name>
+            <name>Internal Maven Snapshot Repository</name>
             <url>${snapshots.distribution.url}</url>
         </snapshotRepository>
 
@@ -44,12 +58,11 @@
 
     <properties>
 
+        <java.version>17</java.version>
+
         <project.build.sourceEncoding>
             UTF-8
         </project.build.sourceEncoding>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
 
         <repository.server.root>
             http://35.253.88.8:8081/repository
@@ -68,10 +81,17 @@
 
     <dependencies>
 
+        <!-- Spring Boot REST API -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -82,55 +102,10 @@
 
         <plugins>
 
-            <!--
-                Creates an executable JAR.
-
-                Your Java class is:
-                package tcs;
-                public class App
-
-                Therefore Main-Class must be tcs.App
-            -->
+            <!-- Creates executable Spring Boot JAR -->
             <plugin>
-
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-
-                <configuration>
-
-                    <archive>
-
-                        <manifest>
-
-                            <addClasspath>true</addClasspath>
-
-                            <mainClass>tcs.App</mainClass>
-
-                        </manifest>
-
-                    </archive>
-
-                </configuration>
-
-            </plugin>
-
-
-            <!-- Maven compiler -->
-            <plugin>
-
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-
-                <version>3.8.1</version>
-
-                <configuration>
-
-                    <source>1.8</source>
-                    <target>1.8</target>
-
-                </configuration>
-
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
         </plugins>
