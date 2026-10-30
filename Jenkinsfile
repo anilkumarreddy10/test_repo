@@ -4,7 +4,6 @@ pipeline {
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "mvn"
-        jdk 'jdk21'
     }
     environment {
         IMAGE_NAME = "us-central1-docker.pkg.dev/project-b7d113bc-47ff-4eb4-827/test-repo/test-app"
