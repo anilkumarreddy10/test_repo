@@ -1,11 +1,9 @@
-# Use a lightweight JDK image
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jre-alpine
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy your JAR file into the container
 COPY target/*.jar app.jar
 
-# Run the JAR when the container starts
-CMD ["java", "-jar", "app.jar"]
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
