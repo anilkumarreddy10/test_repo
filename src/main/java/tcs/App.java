@@ -1,13 +1,8 @@
-package tcs;
+@RestController
+public class AppController {
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello good World!" );
+    @GetMapping("/")
+    public String hello() {
+        return "Hello good World!";
     }
 }
